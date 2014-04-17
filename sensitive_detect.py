@@ -35,14 +35,14 @@ def get_sensitive_commentlists(begin_page, end_page, baseUrl):
 # you may have to change this function according to the html file you want to parse      
 def find_content(wholePage):
    soup = BeautifulSoup(wholePage)
-   class_zmid = soup(class_='zmid')
+   class_zmid = soup(class_='zmid') # define your own class name  
    contents = class_zmid[0]
    contents = contents.get_text()
    return contents
 
 
 def check_sensitive_words(to_check):
-   word_list = Sensitive.objects.all() #here Sensitive is a django model object; 
+   word_list = Sensitive.objects.all() # here Sensitive is a django model object; 
    for word in word_list:
       word = str(word)
       word = word.decode('utf-8')
